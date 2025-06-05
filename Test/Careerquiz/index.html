@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Career Compass</title>
+    <link rel="icon" href="./img/Logo.svg" type="image/png">    
+    <link rel="stylesheet" href="style.css"> <!--Liên kết với file Css-->
+    <link rel="stylesheet" href="../../Modals/auth-modal.css">
+    <script src="./script.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Đây là dòng giúp kích thước của các phần tử không bị tràn ra khỏi màn hình của các thiết bị nhỏ-->
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <nav class="nav_pc">
+                <img class="nav-logo" src="../../Logo.svg"></img>
+                <ul class="nav_pc-list">
+                    <li class="nav_pc-link"><a href="../../index.html">Trang chủ</a></li>
+                    <li class="nav_pc-link"><a href="../../Học tập/tl.html">Học tập</a></li>
+                    <li class="nav_pc-link"><a href="../MBTI/index.html">Test</a></li>
+                    <li class="nav_pc-link"><a href="../../Thông tin/post.html">Thông tin</a></li>
+                    <li class="nav_pc-link"><a href="#">Tư vấn</a></li>
+                    <li class="nav_pc-link"><a href="../../interview-main/pv/interview.html">Phỏng vấn</a></li>
+                    <li class="nav_pc-link"><a href="../../Liên hệ/lienhe.html">Liên hệ</a></li>
+                    <li class="nav_pc-link" id="signupLink"><a href="#" id="showSignupModal">Đăng ký</a></li>
+                    <li class="nav_pc-link" id="loginLink"><a href="#" id="showLoginModal">Đăng nhập</a></li>                    <li class="nav_pc-link" id="userLogoContainer" style="display: none; position: relative;">
+                        <img id="userLogo" src="" alt="User Logo"
+                            style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer;">
+                        <div id="userMenu">
+                            <a href="../../Profile/profile.html">Trang cá nhân</a>
+                            <button id="logoutBtn">Đăng xuất</button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <label class="bar-btn" for="nav_MobileAndTablet-input">
+                <img class="nav_bar-btn" src="../../image/bar-button.png">
+            </label>
+            <input type="checkbox" hidden class="nav_input" id="nav_MobileAndTablet-input">
+            <label for="nav_MobileAndTablet-input" class="nav_overlay"></label>
+            <div class="nav_MobileAndTablet">
+                <div class="menu">
+                    <img class="nav-logo" src="../../Logo.svg"></img>
+                    <label class="bar-close" for="nav_MobileAndTablet-input">
+                        <img class="nav_bar-close" src="../../image/close.png">
+                    </label>
+                </div>
+                <ul class="nav_MobileAndTablet-list">
+                    <li class="nav_MobileAndTablet-link"><a href="../../index.html">Trang chủ</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="../../Học tập/tl.html">Học tập</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="../MBTI/index.html">Test</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="../../Thông tin/post.html">Thông tin</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="../../Chatbot Tư vấn Hướng nghiệp/templates/index.html">Tư vấn</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="../../Chatbot Nhà tuyển dụng/templates/index.html">Phỏng vấn</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="../../Liên hệ/lienhe.html">Liên hệ</a></li>
+                    <li class="nav_pc-link" id="signupLink"><a href="#" id="showSignupModal">Đăng ký</a></li>
+                    <li class="nav_pc-link" id="loginLink"><a href="#" id="showLoginModal">Đăng nhập</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+        <!-- Login Modal -->
+    <div id="loginModal" class="auth-modal">
+        <div class="auth-modal-content">
+            <span class="close-modal">&times;</span>
+            <h1>Đăng nhập</h1>
+            <div id="login-error-message" class="error-message"></div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" name="email" required placeholder="Nhập địa chỉ email">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Mật khẩu:</label>
+                    <input type="password" id="login-password" name="password" required placeholder="Nhập mật khẩu">
+                </div>
+                <button type="submit" class="btn btn-primary">Đăng nhập</button>
+            </form>
+            <div class="separator">
+                <span>Hoặc</span>
+            </div>
+            <button id="google-login-btn" class="btn btn-google">
+                <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+                    <path fill="currentColor" d="M488 261.8C488 403.3 381.5 512 244 512 110.3 512 0 401.7 0 261.8 0 122.1 105.3 8.4 244 8.4c69.1 0 128.8 27.3 174.2 68.1l-61.9 59.7C333.5 111.1 293.3 91.3 244 91.3c-74.6 0-134.9 60.8-134.9 135.9s60.3 135.9 134.9 135.9c83.2 0 111.1-61.1 114.6-88.9H244v-76.1h239.9c2.3 12.7 3.7 26.1 3.7 40.4z"/>
+                </svg>
+                Đăng nhập với Google
+            </button>
+            <div class="extra-links">
+                <a href="#" id="switchToSignup">Tạo tài khoản mới</a>
+                <span>|</span>
+                <a href="#">Quên mật khẩu?</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="auth-modal">
+        <div class="auth-modal-content">
+            <span class="close-modal">&times;</span>
+            <h1>Đăng ký tài khoản</h1>
+            <div id="signup-error-message" class="error-message"></div>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="signup-email">Email:</label>
+                    <input type="email" id="signup-email" name="email" required placeholder="Nhập địa chỉ email">
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Mật khẩu:</label>
+                    <input type="password" id="signup-password" name="password" required placeholder="Tạo mật khẩu (ít nhất 6 ký tự)">
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Xác nhận mật khẩu:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required placeholder="Nhập lại mật khẩu">
+                </div>
+                <button type="submit" class="btn btn-primary">Đăng ký</button>
+            </form>
+            <div class="separator">
+                <span>Hoặc</span>
+            </div>
+            <button id="google-signup-btn" class="btn btn-google">
+                <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+                    <path fill="currentColor" d="M488 261.8C488 403.3 381.5 512 244 512 110.3 512 0 401.7 0 261.8 0 122.1 105.3 8.4 244 8.4c69.1 0 128.8 27.3 174.2 68.1l-61.9 59.7C333.5 111.1 293.3 91.3 244 91.3c-74.6 0-134.9 60.8-134.9 135.9s60.3 135.9 134.9 135.9c83.2 0 111.1-61.1 114.6-88.9H244v-76.1h239.9c2.3 12.7 3.7 26.1 3.7 40.4z"/>
+                </svg>
+                Tiếp tục với Google
+            </button>
+            <div class="extra-links">
+                <span>Bạn đã có tài khoản?</span>
+                <a href="#" id="switchToLogin">Đăng nhập ngay</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="grid-quiz">
+            <h1 class="title">Làm bài trắc nghiệm<span class="fontcolor-organe">MBTI</span>miễn phí</h1>
+            <h3><span class="fontcolor-organe" id="firstcolor">Khám phá</span>tính cách độc đáo của bạn</h3>
+            <div class="sticky-progress" id="sticky-progress">
+                <div class="title-process">
+                  <div id="title-process">0/80 câu</div>
+                </div>
+                <div class="process">
+                  <div class="process-bar" id="process-bar"></div>
+                </div>
+            </div>              
+            <div class="quiz standalone-quiz">
+                <h1 class="question">Câu 1.</h1>
+                <div class="standalone-answers">
+                    <h2 class="agree">Tôi thích ứng biến hơn</h2>            
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q1" data-points-j="0" data-points-p="5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q1" data-points-j="1" data-points-p="4"></button>
+                        <button class="btn-answer btn-answer5" data-answer="q1" data-points-j="2.5" data-points-p="2.5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q1" data-points-j="4" data-points-p="1"></button>
+                        <button class="btn-answer btn-answer1" data-answer="q1" data-points-j="5" data-points-p="0"></button>
+                    </div>           
+                    <h2 class="disagree">Tôi thích làm theo một quy trình rõ ràng</h2>
+                </div>
+            </div>
+            <div class="quiz standalone-quiz">
+                <h1 class="question">Câu 2.</h1>
+                <div class="standalone-answers">
+                    <h2 class="agree">Tôi đưa ra quyết định bằng đầu óc của mình</h2>
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q2" data-points-t="5" data-points-f="0"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q2" data-points-t="3" data-points-f="1"></button>
+                        <button class="btn-answer btn-answer5" data-answer="q2" data-points-t="2.5" data-points-f="2.5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q2" data-points-t="1" data-points-f="3"></button>
+                        <button class="btn-answer btn-answer1" data-answer="q2" data-points-t="0" data-points-f="5"></button>
+                    </div>
+                    <h2 class="disagree">Tôi đưa ra quyết định bằng trái tim mình</h2>
+                </div>
+            </div>
+            
+            <div class="quiz standalone-quiz">
+                <h1 class="question">Câu 3.</h1>
+                <div class="standalone-answers">
+                    <h2 class="agree">Tôi thích thử đổi mới</h2>
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q3" data-points-p="5" data-points-j="0"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q3" data-points-p="3" data-points-j="1"></button>
+                        <button class="btn-answer btn-answer5" data-answer="q3" data-points-p="2.5" data-points-j="2.5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q3" data-points-p="1" data-points-j="3"></button>
+                        <button class="btn-answer btn-answer1" data-answer="q3" data-points-p="0" data-points-j="5"></button>
+                    </div>
+                    <h2 class="disagree">Tôi thích sử dụng các phương pháp đáng tin cậy</h2>
+                </div>
+            </div>
+            
+            <div class="quiz standalone-quiz">
+                <h1 class="question">Câu 4.</h1>
+                <div class="standalone-answers">
+                    <h2 class="agree">Tôi giữ suy nghĩ của mình cho riêng mình</h2>
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q4" data-points-i="5" data-points-e="0"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q4" data-points-i="3" data-points-e="1"></button>
+                        <button class="btn-answer btn-answer5" data-answer="q4" data-points-i="2.5" data-points-e="2.5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q4" data-points-i="1" data-points-e="3"></button>
+                        <button class="btn-answer btn-answer1" data-answer="q4" data-points-i="0" data-points-e="5"></button>
+                    </div>
+                    <h2 class="disagree">Tôi lên tiếng</h2>
+                </div>
+            </div>
+            
+            <div class="quiz standalone-quiz">
+                <h1 class="question">Câu 5.</h1>
+                <div class="standalone-answers">
+                    <h2 class="agree">Tôi tìm kiếm sự chú ý từ người khác</h2>
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q5" data-points-e="5" data-points-i="0"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q5" data-points-e="3" data-points-i="1"></button>
+                        <button class="btn-answer btn-answer5" data-answer="q5" data-points-e="2.5" data-points-i="2.5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q5" data-points-e="1" data-points-i="3"></button>
+                        <button class="btn-answer btn-answer1" data-answer="q5" data-points-e="0" data-points-i="5"></button>
+                    </div>
+                    <h2 class="disagree">Tôi tránh sự chú ý của người khác</h2>
+                </div>
+            </div>
+            
+            <div class="quiz standalone-quiz">
+                <h1 class="question">Câu 6.</h1>
+                <div class="standalone-answers">
+                    <h2 class="agree">Tôi tìm cách giúp đỡ người khác</h2>
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q6" data-points-e="5" data-points-i="0" data-points-f="5" data-points-t="0"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q6" data-points-e="3" data-points-i="1" data-points-f="3" data-points-t="1"></button>
+                        <button class="btn-answer btn-answer5" data-answer="q6" data-points-e="2.5" data-points-i="2.5" data-points-f="2.5" data-points-t="2.5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q6" data-points-e="1" data-points-i="4" data-points-f="1" data-points-t="4"></button>
+                        <button class="btn-answer btn-answer1" data-answer="q6" data-points-e="0" data-points-i="5" data-points-f="0" data-points-t="5"></button>
+                    </div>
+                    <h2 class="disagree">Tôi tìm cách để đạt được mục tiêu của riêng mình</h2>
+                </div>
+            </div>
+            
+            <div class="quiz standalone-quiz">
+                <h1 class="question">Câu 7.</h1>
+                <div class="standalone-answers">
+                    <h2 class="agree">Tôi bắt đầu cuộc trò chuyện</h2>
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q7" data-points-e="5" data-points-i="0"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q7" data-points-e="3" data-points-i="1"></button>
+                        <button class="btn-answer btn-answer5" data-answer="q7" data-points-e="2.5" data-points-i="2.5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q7" data-points-e="1" data-points-i="3"></button>
+                        <button class="btn-answer btn-answer1" data-answer="q7" data-points-e="0" data-points-i="5"></button>
+                    </div>
+                    <h2 class="disagree">Tôi để người khác bắt đầu cuộc trò chuyện</h2>
+                </div>
+            </div>
+            
+            <div class="quiz standalone-quiz">
+                <h1 class="question">Câu 8.</h1>
+                <div class="standalone-answers">
+                    <h2 class="agree">Tôi coi trọng địa vị xã hội của mình</h2>
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q8" data-points-e="5" data-points-i="0" data-points-s="5" data-points-n="0"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q8" data-points-e="3" data-points-i="1" data-points-s="3" data-points-n="1"></button>
+                        <button class="btn-answer btn-answer5" data-answer="q8" data-points-e="2.5" data-points-i="2.5" data-points-s="2.5" data-points-n="2.5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q8" data-points-e="1" data-points-i="4" data-points-s="1" data-points-n="4"></button>
+                        <button class="btn-answer btn-answer1" data-answer="q8" data-points-e="0" data-points-i="5" data-points-s="0" data-points-n="5"></button>
+                    </div>
+                    <h2 class="disagree">Tôi coi trọng sự riêng tư của mình</h2>
+                </div>
+            </div>
+            
+            <div class="quiz standalone-quiz">
+                <h1 class="question">Câu 9.</h1>
+                <div class="standalone-answers">
+                    <h2 class="agree">Tôi đặt nhu cầu của mình lên hàng đầu</h2>
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q9" data-points-i="5" data-points-s="5" data-points-e="0" data-points-n="0"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q9" data-points-i="3" data-points-s="3" data-points-e="1" data-points-n="1"></button>
+                        <button class="btn-answer btn-answer5" data-answer="q9" data-points-i="2.5" data-points-s="2.5" data-points-e="2.5" data-points-n="2.5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q9" data-points-i="1" data-points-s="4" data-points-e="3" data-points-n="4"></button>
+                        <button class="btn-answer btn-answer1" data-answer="q9" data-points-i="0" data-points-s="5" data-points-e="5" data-points-n="5"></button>
+                    </div>
+                    <h2 class="disagree">Tôi đặt nhu cầu của người khác lên trước nhu cầu của mình</h2>
+                </div>
+            </div>
+            
+            <div class="quiz standalone-quiz">
+                <h1 class="question">Câu 10.</h1>
+                <div class="standalone-answers">
+                    <h2 class="agree">Tôi làm theo một kế hoạch</h2>
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q10" data-points-j="5" data-points-p="0"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q10" data-points-j="3" data-points-p="1"></button>
+                        <button class="btn-answer btn-answer5" data-answer="q10" data-points-j="2.5" data-points-p="2.5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q10" data-points-j="1" data-points-p="3"></button>
+                        <button class="btn-answer btn-answer1" data-answer="q10" data-points-j="0" data-points-p="5"></button>
+                    </div>
+                    <h2 class="disagree">Tôi hành động theo sự thôi thúc</h2>
+                </div>
+            </div>
+            
+            <div class="quiz standalone-quiz">
+                <h1 class="question">Câu 11.</h1>
+                <div class="standalone-answers">
+                    <h2 class="agree">Tôi luôn luôn chuẩn bị</h2>
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q11" data-points-j="5" data-points-p="0"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q11" data-points-j="3" data-points-p="1"></button>
+                        <button class="btn-answer btn-answer5" data-answer="q11" data-points-j="2.5" data-points-p="2.5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q11" data-points-j="1" data-points-p="3"></button>
+                        <button class="btn-answer btn-answer1" data-answer="q11" data-points-j="0" data-points-p="5"></button>
+                    </div>
+                    <h2 class="disagree">Tôi thường không chuẩn bị</h2>
+                </div>
+            </div>
+            
+            <div class="quiz standalone-quiz">
+                <h1 class="question">Câu 12.</h1>
+                <div class="standalone-answers">
+                    <h2 class="agree">Tôi đảm bảo mọi người đều được chăm sóc</h2>
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q12" data-points-e="5" data-points-n="5" data-points-i="0" data-points-s="0"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q12" data-points-e="3" data-points-n="3" data-points-i="1" data-points-s="1"></button>
+                        <button class="btn-answer btn-answer5" data-answer="q12" data-points-e="2.5" data-points-n="2.5" data-points-i="2.5" data-points-s="2.5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q12" data-points-e="1" data-points-n="4" data-points-i="4" data-points-s="3"></button>
+                        <button class="btn-answer btn-answer1" data-answer="q12" data-points-e="0" data-points-n="5" data-points-i="5" data-points-s="5"></button>
+                    </div>
+                    <h2 class="disagree">Tôi trông chừng bản thân mình</h2>
+                </div>
+            </div>
+            
+            <div class="quiz standalone-quiz">
+                <h1 class="question">Câu 13.</h1>
+                <div class="standalone-answers">
+                    <h2 class="agree">Tôi dành thời gian để theo đuổi mục tiêu của mình</h2>
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q13" data-points-n="5" data-points-t="5" data-points-s="0" data-points-f="0"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q13" data-points-n="3" data-points-t="3" data-points-s="1" data-points-f="1"></button>
+                        <button class="btn-answer btn-answer5" data-answer="q13" data-points-n="2.5" data-points-t="2.5" data-points-s="2.5" data-points-f="2.5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q13" data-points-n="1" data-points-t="4" data-points-s="3" data-points-f="4"></button>
+                        <button class="btn-answer btn-answer1" data-answer="q13" data-points-n="0" data-points-t="5" data-points-s="5" data-points-f="5"></button>
+                    </div>
+                    <h2 class="disagree">Tôi dành thời gian của mình để tận hưởng cuộc sống</h2>
+                </div>
+            </div>
+            
+            <div class="quiz standalone-quiz">
+                <h1 class="question">Câu 14.</h1>
+                <div class="standalone-answers">
+                    <h2 class="agree">Tôi tập trung vào cuộc sống thực</h2>
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q14" data-points-j="5" data-points-i="5" data-points-p="0" data-points-t="0"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q14" data-points-j="3" data-points-i="3" data-points-p="1" data-points-t="1"></button>
+                        <button class="btn-answer btn-answer5" data-answer="q14" data-points-j="2.5" data-points-i="2.5" data-points-p="2.5" data-points-t="2.5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q14" data-points-j="1" data-points-i="4" data-points-p="3" data-points-t="4"></button>
+                        <button class="btn-answer btn-answer1" data-answer="q14" data-points-j="0" data-points-i="5" data-points-p="5" data-points-t="5"></button>
+                    </div>
+                    <h2 class="disagree">Tôi sử dụng trí tưởng tượng của tôi</h2>
+                </div>
+            </div>
+            
+            <div class="quiz standalone-quiz">
+                <h1 class="question">Câu 15.</h1>
+                <div class="standalone-answers">
+                    <h2 class="agree">Tôi tin tưởng vào các giá trị truyền thống</h2>
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q15" data-points-t="5" data-points-f="0" data-points-j="5" data-points-p="0"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q15" data-points-t="3" data-points-f="1" data-points-j="3" data-points-p="1"></button>
+                        <button class="btn-answer btn-answer5" data-answer="q15" data-points-t="2.5" data-points-f="2.5" data-points-j="2.5" data-points-p="2.5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q15" data-points-t="1" data-points-f="3" data-points-j="1" data-points-p="3"></button>
+                        <button class="btn-answer btn-answer1" data-answer="q15" data-points-t="0" data-points-f="5" data-points-j="0" data-points-p="5"></button>
+                    </div>
+                    <h2 class="disagree">Tôi đặt câu hỏi về các giá trị truyền thống</h2>
+                </div>
+            </div>            
+            
+            <div class="quiz standalone-quiz">
+                <h1 class="question">Câu 16.</h1>
+                <div class="standalone-answers">
+                    <h2 class="agree">Tôi thích những hoạt động quen thuộc</h2>
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q16" data-points-j="5" data-points-p="0"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q16" data-points-j="3" data-points-p="1"></button>
+                        <button class="btn-answer btn-answer5" data-answer="q16" data-points-j="2.5" data-points-p="2.5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q16" data-points-j="1" data-points-p="3"></button>
+                        <button class="btn-answer btn-answer1" data-answer="q16" data-points-j="0" data-points-p="5"></button>
+                    </div>
+                    <h2 class="disagree">Tôi thích trải nghiệm những điều mới mẻ</h2>
+                </div>
+            </div>
+            
+            <div class="quiz standalone-quiz">
+                <h1 class="question">Câu 17.</h1>
+                <div class="standalone-answers">
+                    <h2 class="agree">Tôi quan tâm nhiều hơn đến những gì có thể</h2>
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q17" data-points-f="5" data-points-p="0" data-points-j="5" data-points-f="0"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q17" data-points-f="3" data-points-p="1" data-points-j="3" data-points-p="1"></button>
+                        <button class="btn-answer btn-answer5" data-answer="q17" data-points-f="2.5" data-points-p="2.5" data-points-j="2.5" data-points-p="2.5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q17" data-points-f="1" data-points-p="3" data-points-j="1" data-points-p="3"></button>
+                        <button class="btn-answer btn-answer1" data-answer="q17" data-points-f="0" data-points-p="5" data-points-j="0" data-points-p="5"></button>
+                    </div>
+                    <h2 class="disagree">Tôi quan tâm nhiều hơn đến những gì là thực tế</h2>
+                </div>
+            </div>
+            
+            <div class="quiz standalone-quiz">
+                <h1 class="question">Câu 18.</h1>
+                <div class="standalone-answers">
+                    <h2 class="agree">Tôi thích hợp tác</h2>
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q18" data-points-e="5" data-points-t="0" data-points-f="5" data-points-e="0"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q18" data-points-e="3" data-points-t="1" data-points-f="3" data-points-e="1"></button>
+                        <button class="btn-answer btn-answer5" data-answer="q18" data-points-e="2.5" data-points-t="2.5" data-points-f="2.5" data-points-e="2.5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q18" data-points-e="1" data-points-t="3" data-points-f="1" data-points-e="3"></button>
+                        <button class="btn-answer btn-answer1" data-answer="q18" data-points-e="0" data-points-t="5" data-points-f="0" data-points-e="5"></button>
+                    </div>
+                    <h2 class="disagree">Tôi thích cạnh tranh</h2>
+                </div>
+            </div>
+            
+            <div class="quiz standalone-quiz">
+                <h1 class="question">Câu 19.</h1>
+                <div class="standalone-answers">
+                    <h2 class="agree">Tôi thích làm việc trong một văn phòng năng động, nhộn nhịp</h2>
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q19" data-points-e="5" data-points-j="5" data-points-i="0"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q19" data-points-e="3" data-points-j="3" data-points-i="1"></button>
+                        <button class="btn-answer btn-answer5" data-answer="q19" data-points-e="2.5" data-points-j="2.5" data-points-i="2.5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q19" data-points-e="1" data-points-j="1" data-points-i="3"></button>
+                        <button class="btn-answer btn-answer1" data-answer="q19" data-points-e="0" data-points-j="0" data-points-i="5"></button>
+                    </div>
+                    <h2 class="disagree">Tôi thích làm việc trong một văn phòng yên tĩnh, thanh bình</h2>
+                </div>
+            </div>
+            
+            <div class="quiz standalone-quiz">
+                <h1 class="question">Câu 20.</h1>
+                <div class="standalone-answers">
+                    <h2 class="agree">Tôi làm mọi việc từng bước một</h2>
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q20" data-points-j="5" data-points-p="0"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q20" data-points-j="3" data-points-p="1"></button>
+                        <button class="btn-answer btn-answer5" data-answer="q20" data-points-j="2.5" data-points-p="2.5"></button>
+                        <button class="btn-answer btn-answer3" data-answer="q20" data-points-j="1" data-points-p="3"></button>
+                        <button class="btn-answer btn-answer1" data-answer="q20" data-points-j="0" data-points-p="5"></button>
+                    </div>
+                    <h2 class="disagree">Tôi nhảy vào và tìm hiểu mọi thứ khi tôi đi</h2>
+                </div>
+            </div>
+            
+            <div class="quiz">
+                <h1 class="question">Câu 21. Tôi có rất nhiều năng lượng</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <div class="answers-buttons">
+                        <button class="btn-answer btn-answer1" data-answer="q21" data-points-e="5" ></button>
+                        <button class="btn-answer btn-answer2" data-answer="q21" data-points-e="4" ></button>
+                        <button class="btn-answer btn-answer3" data-answer="q21" data-points-e="3" ></button>
+                        <button class="btn-answer btn-answer4" data-answer="q21" data-points-e="1" ></button>
+                        <button class="btn-answer btn-answer5" data-answer="q21" data-points-e="0" ></button>
+                    </div>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 22. Tôi có một trí tưởng tượng sống động</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q22" data-points-p="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q22" data-points-p="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q22" data-points-p="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q22" data-points-p="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q22" data-points-p="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            
+            <div class="quiz">
+                <h1 class="question">Câu 23. Tôi thích tuân theo một lịch trình</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q23" data-points-j="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q23" data-points-j="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q23" data-points-j="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q23" data-points-j="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q23" data-points-j="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 24. Tôi thích cố gắng hiểu những ý tưởng phức tạp</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q24" data-points-p="5" data-points-t="5"></button>
+                    <button class="btn-answer btn-answer2" data-answer="q24" data-points-p="4" data-points-t="4"></button>
+                    <button class="btn-answer btn-answer3" data-answer="q24" data-points-p="3" data-points-t="3"></button>
+                    <button class="btn-answer btn-answer4" data-answer="q24" data-points-p="1" data-points-t="1"></button>
+                    <button class="btn-answer btn-answer5" data-answer="q24" data-points-p="0" data-points-t="0"></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 25. Tôi nghĩ về nhu cầu của người khác</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q25" data-points-f="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q25" data-points-f="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q25" data-points-f="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q25" data-points-f="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q25" data-points-f="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 26. Tôi thích được là trung tâm của sự chú ý</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q26" data-points-e="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q26" data-points-e="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q26" data-points-e="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q26" data-points-e="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q26" data-points-e="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 27. Tôi đảm bảo công việc của tôi được hoàn thành đúng thời hạn</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q27" data-points-j="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q27" data-points-j="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q27" data-points-j="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q27" data-points-j="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q27" data-points-j="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 28. Tôi thông cảm với những người vô gia cư</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q28" data-points-f="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q28" data-points-f="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q28" data-points-f="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q28" data-points-f="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q28" data-points-f="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 29. Tôi nghĩ về lý do tại sao mọi người làm những việc họ làm</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q29" data-points-n="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q29" data-points-n="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q29" data-points-n="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q29" data-points-n="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q29" data-points-n="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 30. Tôi thích trò chuyện với những người mới quen</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q30" data-points-e="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q30" data-points-e="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q30" data-points-e="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q30" data-points-e="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q30" data-points-e="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 31. Tôi giữ đồ đạc của mình ở đúng vị trí của chúng</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q31" data-points-j="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q31" data-points-j="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q31" data-points-j="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q31" data-points-j="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q31" data-points-j="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 32. Tôi thích ở bên mọi người khi họ cảm thấy buồn</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q32" data-points-e="5" data-points-f="5"  ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q32" data-points-e="4" data-points-f="4"  ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q32" data-points-e="3" data-points-f="3"  ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q32" data-points-e="1" data-points-f="1"  ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q32" data-points-e="0" data-points-f="0"  ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 33. Tôi muốn thuận theo dòng chảy hơn là có một lịch trình cố định</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q33" data-points-p="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q33" data-points-p="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q33" data-points-p="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q33" data-points-p="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q33" data-points-p="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 34. Tôi thích những cuộc thảo luận triết học</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q34" data-points-s="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q34" data-points-s="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q34" data-points-s="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q34" data-points-s="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q34" data-points-s="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 35. Tôi rất chú ý đến thời hạn</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q35" data-points-j="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q35" data-points-j="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q35" data-points-j="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q35" data-points-j="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q35" data-points-j="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 36. Tôi giúp ích cho mọi người xung quanh tôi</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q36" data-points-e="5" data-points-f="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q36" data-points-e="4" data-points-f="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q36" data-points-e="3" data-points-f="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q36" data-points-e="1" data-points-f="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q36" data-points-e="0" data-points-f="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 37. Điều quan trọng đối với tôi là hiểu được bức tranh lớn hơn</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q37" data-points-p="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q37" data-points-p="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q37" data-points-p="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q37" data-points-p="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q37" data-points-p="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 38. Tôi dễ dàng nói chuyện với người lạ</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q38" data-points-e="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q38" data-points-e="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q38" data-points-e="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q38" data-points-e="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q38" data-points-e="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 39. Tôi tin vào tầm quan trọng của nghệ thuật</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q39" data-points-s="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q39" data-points-s="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q39" data-points-s="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q39" data-points-s="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q39" data-points-s="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 40. Tôi làm việc chăm chỉ để làm hài lòng người khác</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q40" data-points-n="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q40" data-points-n="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q40" data-points-n="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q40" data-points-n="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q40" data-points-n="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 41. Tôi thích suy nghĩ về những điều bí ẩn của vũ trụ</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q41" data-points-p="5" data-points-t="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q41" data-points-p="4" data-points-t="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q41" data-points-p="3" data-points-t="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q41" data-points-p="1" data-points-t="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q41" data-points-p="0" data-points-t="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 42. Tôi lập kế hoạch và thực hiện chúng</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q42" data-points-j="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q42" data-points-j="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q42" data-points-j="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q42" data-points-j="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q42" data-points-j="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 43. Tôi dành thời gian để cố gắng hiểu bản thân mình</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q43" data-points-f="5" data-points-s="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q43" data-points-f="4" data-points-s="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q43" data-points-f="3" data-points-s="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q43" data-points-f="1" data-points-s="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q43" data-points-f="0" data-points-s="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 44. Tôi cảm thấy thích thú khi gặp gỡ những người mới</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q44" data-points-s="5" data-points-e="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q44" data-points-s="4" data-points-e="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q44" data-points-s="3" data-points-e="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q44" data-points-s="1" data-points-e="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q44" data-points-s="0" data-points-e="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 45. Tôi nhạy cảm với cảm xúc của người khác</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q45" data-points-s="5" data-points-i="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q45" data-points-s="4" data-points-i="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q45" data-points-s="3" data-points-i="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q45" data-points-s="1" data-points-i="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q45" data-points-s="0" data-points-i="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 46. Tôi thích tìm hiểu về các lý thuyết khoa học</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q46" data-points-p="5" data-points-t="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q46" data-points-p="4" data-points-t="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q46" data-points-p="3" data-points-t="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q46" data-points-p="1" data-points-t="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q46" data-points-p="0" data-points-t="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 47. Tôi bắt đầu công việc trước để có đủ thời gian hoàn thành</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q47" data-points-j="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q47" data-points-j="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q47" data-points-j="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q47" data-points-j="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q47" data-points-j="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 48. Tôi thích kết bạn mới</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q48" data-points-e="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q48" data-points-e="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q48" data-points-e="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q48" data-points-e="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q48" data-points-e="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 49. Tôi muốn có một kế hoạch chi tiết trước khi bắt đầu một nhiệm vụ</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q49" data-points-j="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q49" data-points-j="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q49" data-points-j="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q49" data-points-j="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q49" data-points-j="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 50. Mọi người nói tôi quá im lặng</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q50" data-points-i="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q50" data-points-i="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q50" data-points-i="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q50" data-points-i="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q50" data-points-i="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 51. Tôi quan tâm đến người khác</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q51" data-points-f="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q51" data-points-f="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q51" data-points-f="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q51" data-points-f="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q51" data-points-f="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 52. Tôi muốn đưa ra một giải pháp ban đầu cho một vấn đề</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q52" data-points-j="5" data-points-n="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q52" data-points-j="4" data-points-n="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q52" data-points-j="3" data-points-n="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q52" data-points-j="1" data-points-n="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q52" data-points-j="0" data-points-n="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 53. Việc ở gần nhiều người khiến tôi tràn đầy năng lượng</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q53" data-points-e="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q53" data-points-e="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q53" data-points-e="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q53" data-points-e="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q53" data-points-e="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 54. Tôi gặp khó khăn trong việc tuân thủ một thói quen</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q54" data-points-p="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q54" data-points-p="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q54" data-points-p="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q54" data-points-p="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q54" data-points-p="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 55. Điều quan trọng đối với tôi là phục vụ người khác</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q55" data-points-e="5" data-points-s="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q55" data-points-e="4" data-points-s="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q55" data-points-e="3" data-points-s="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q55" data-points-e="1" data-points-s="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q55" data-points-e="0" data-points-s="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 56. Tôi thích khám phá bản thân và cuộc sống của mình</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q56" data-points-p="5" data-points-t="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q56" data-points-p="4" data-points-t="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q56" data-points-p="3" data-points-t="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q56" data-points-p="1" data-points-t="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q56" data-points-p="0" data-points-t="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 57. Tôi thấy khó khăn khi kết bạn mới</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q57" data-points-i="5" data-points-s="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q57" data-points-i="4" data-points-s="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q57" data-points-i="3" data-points-s="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q57" data-points-i="1" data-points-s="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q57" data-points-i="0" data-points-s="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 58. Tôi là một người kín đáo</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q58" data-points-i="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q58" data-points-i="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q58" data-points-i="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q58" data-points-i="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q58" data-points-i="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 59. Tôi cho người khác biết rằng tôi quan tâm đến cảm xúc của họ</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q59" data-points-e="5" data-points-n="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q59" data-points-e="4" data-points-n="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q59" data-points-e="3" data-points-n="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q59" data-points-e="1" data-points-n="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q59" data-points-e="0" data-points-n="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 60. Tôi tràn đầy ý tưởng mới</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q60" data-points-p="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q60" data-points-p="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q60" data-points-p="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q60" data-points-p="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q60" data-points-p="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 61. Tôi chống lại sự cám dỗ</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q61" data-points-j="5" data-points-t="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q61" data-points-j="4" data-points-t="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q61" data-points-j="3" data-points-t="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q61" data-points-j="1" data-points-t="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q61" data-points-j="0" data-points-t="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 62. Tôi quyết tâm đạt được thành công trong cuộc sống</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q62" data-points-j="5" data-points-t="5" data-points-s="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q62" data-points-j="4" data-points-t="4" data-points-s="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q62" data-points-j="3" data-points-t="3" data-points-s="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q62" data-points-j="1" data-points-t="1" data-points-s="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q62" data-points-j="0" data-points-t="0" data-points-s="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 63. Tôi thích dành thời gian rảnh rỗi của mình một mình</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q63" data-points-i="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q63" data-points-i="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q63" data-points-i="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q63" data-points-i="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q63" data-points-i="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 64. Tôi tin rằng mọi người nên bị trừng phạt vì những sai lầm của họ</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q64" data-points-t="5" data-points-s="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q64" data-points-t="4" data-points-s="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q64" data-points-t="3" data-points-s="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q64" data-points-t="1" data-points-s="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q64" data-points-t="0" data-points-s="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 65. Tôi dành thời gian tìm kiếm những trải nghiệm mới</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q65" data-points-p="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q65" data-points-p="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q65" data-points-p="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q65" data-points-p="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q65" data-points-p="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 66. Tôi ước mọi người sẽ logic hơn</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q66" data-points-j="5" data-points-t="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q66" data-points-j="4" data-points-t="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q66" data-points-j="3" data-points-t="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q66" data-points-j="1" data-points-t="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q66" data-points-j="0" data-points-t="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 67. Tôi thích dọn dẹp</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q67" data-points-j="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q67" data-points-j="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q67" data-points-j="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q67" data-points-j="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q67" data-points-j="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 68. Tôi thích tưởng tượng về tương lai</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q68" data-points-p="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q68" data-points-p="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q68" data-points-p="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q68" data-points-p="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q68" data-points-p="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 69. Tôi thấy khó khăn khi bày tỏ ý kiến của mình</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q69" data-points-i="5" data-points-f="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q69" data-points-i="4" data-points-f="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q69" data-points-i="3" data-points-f="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q69" data-points-i="1" data-points-f="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q69" data-points-i="0" data-points-f="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 70. Tôi cố gắng không thu hút sự chú ý vào mình</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q70" data-points-j="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q70" data-points-j="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q70" data-points-j="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q70" data-points-j="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q70" data-points-j="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 71. Tôi không thích cạnh tranh với người khác</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q71" data-points-j="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q71" data-points-j="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q71" data-points-j="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q71" data-points-j="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q71" data-points-j="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 72. Tôi nghi ngờ sự khôn ngoan của những người lớn tuổi</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q72" data-points-n="5" data-points-t="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q72" data-points-n="4" data-points-t="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q72" data-points-n="3" data-points-t="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q72" data-points-n="1" data-points-t="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q72" data-points-n="0" data-points-t="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 73. Tôi hoàn thành bài tập trước thời hạn</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q73" data-points-j="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q73" data-points-j="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q73" data-points-j="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q73" data-points-j="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q73" data-points-j="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 74. Tôi quan tâm đến phúc lợi của người già</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q74" data-points-s="5" data-points-f="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q74" data-points-s="4" data-points-f="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q74" data-points-s="3" data-points-f="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q74" data-points-s="1" data-points-f="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q74" data-points-s="0" data-points-f="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 75. Tôi theo đuổi những xung động của mình</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q75" data-points-e="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q75" data-points-e="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q75" data-points-e="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q75" data-points-e="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q75" data-points-e="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 76. Tôi cảm thấy rất vui</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q76" data-points-f="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q76" data-points-f="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q76" data-points-f="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q76" data-points-f="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q76" data-points-f="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 77. Tôi cần sự hỗ trợ từ những người khác</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q77" data-points-i="5" data-points-f="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q77" data-points-i="4" data-points-f="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q77" data-points-i="3" data-points-f="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q77" data-points-i="1" data-points-f="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q77" data-points-i="0" data-points-f="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 78. Tôi thích đi thăm viện bảo tàng</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q78" data-points-f="5" data-points-t="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q78" data-points-f="4" data-points-t="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q78" data-points-f="3" data-points-t="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q78" data-points-f="1" data-points-t="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q78" data-points-f="0" data-points-t="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 79. Tôi tránh đám đông ồn ào</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q79" data-points-i="5" data-points-f="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q79" data-points-i="4" data-points-f="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q79" data-points-i="3" data-points-f="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q79" data-points-i="1" data-points-f="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q79" data-points-i="0" data-points-f="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+            <div class="quiz">
+                <h1 class="question">Câu 80. Tôi thích thơ</h1>
+                <div class="answers">
+                    <h2 class="argee">Đúng</h2>
+                    <button class="btn-answer btn-answer1" data-answer="q80" data-points-f="5" ></button>
+                    <button class="btn-answer btn-answer2" data-answer="q80" data-points-f="4" ></button>
+                    <button class="btn-answer btn-answer3" data-answer="q80" data-points-f="3" ></button>
+                    <button class="btn-answer btn-answer4" data-answer="q80" data-points-f="1" ></button>
+                    <button class="btn-answer btn-answer5" data-answer="q80" data-points-f="0" ></button>
+                    <h2 class="disargee">Không đúng</h2>
+                </div>
+            </div>
+        </div>
+            <button id="submitBtn">Xem kết quả</button>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-bottom">
+            <h3>CAREER COMPASS</h3>
+        </div>
+        <div class="footer-container">
+            <div class="footer-column">
+                <img src="../img/Logo.svg" alt="Logo" class="footer-logo">
+            </div>
+            <div class="footer-column">
+                <h3>Thông tin liên hệ</h3>
+                <p>Địa chỉ: 1A Nguyễn Hiến Lê, Phường 13, Tân Bình, Hồ Chí Minh</p>
+                <p>Điện thoại: 090 695 0881</p>
+                <p>Email: tuansu1561@gmail.com</p>
+            </div>
+            <div class="footer-column">
+                <div class="links">
+                    <a href="../../index.html">Trang chủ</a> 
+                    <a href="../../Học tập/tl.html">Học tập</a> 
+                    <a href="../MBTI/index.html">Test</a> 
+                    <a href="../../Thông tin/post.html">Thông tin</a> 
+                    <a href="#">Tư vấn</a> 
+                    <a href="../../interview-main/pv/interview.html">Phỏng vấn</a>
+                    <a href="../../Liên hệ/lienhe.html">Liên hệ</a>
+                </div>  
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2025 CAREER COMPASS. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script type="module" src="../../Modals/auth-modal.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: #333333; /* Xám đậm cho dễ đọc */
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center; /* căn giữa chatbot theo chiều ngang */
+    align-items: center;     /* căn giữa theo chiều dọc */
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Màu chủ đạo */
+    --block-blue: #2056ad;       /* Xanh đậm */
+    --primary-orange: #FFA500;     /* Cam tươi */
+
+    /* Màu nền tin nhắn */
+    --bot-message-bg: #FFE5B4;     /* Cam nhạt */
+    --user-message-bg: #D6EFFF;    /* Xanh nhạt */
+
+    /* Màu chữ */
+    --text-dark: #333333;
+    --text-light: #646464;
+
+    /* Màu icon */
+     --send-icon-color: #ffffff;
+
+}
+
+
+#chatContainer {
+    width: 90%;
+    height: 90%;
+}
+
+#chatHeader {
+    width: 100%;
+    height: 70px;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+
+#chatIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+}
+
+#chatIcon img {
+    width: 50px;
+    height: 50px;
+}
+
+#chatTitle {
+    font-size: 32px;
+    font-weight: bold;
+    color: #2056ad;
+}
+
+#chatWindow {
+    width: 100%;
+    height: 500px;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 30px 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#messageList {
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* xếp tin nhắn theo chiều dọc */
+    gap: 10px; /* khoảng cách giữa các tin nhắn */
+    border-radius: 8px;
+    box-sizing: border-box; /* Để padding được tính trong kích thước */
+    overflow-y: auto; /* nếu muốn cuộn khi nội dung nhiều */
+}
+
+.botMessage {
+    align-self: flex-start; /* căn sang trái */
+    background-color: var(--bot-message-bg); /* cam nhạt */
+    color: #333333;            /* chữ đậm vừa */
+    padding: 10px 15px;
+    border-radius: 15px 15px 15px 0; /* bo tròn các góc ngoại trừ góc dưới trái */
+    max-width: 70%; /* giới hạn chiều rộng */
+}
+
+.userMessage {
+    align-self: flex-end; /* căn sang phải */
+    background-color: var(--user-message-bg); /* xanh nhạt */
+    color: #000000;            /* chữ đen */
+    padding: 10px 15px;
+    border-radius: 15px 15px 0 15px; /* bo tròn các góc ngoại trừ góc dưới phải */
+    max-width: 70%;
+}
+
+.currentTime {
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+#inputArea {
+    width: 100%;
+    height: 60px;
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box; /* Để padding được tính trong kích thước */
+}
+
+#userInput {
+    width: 100%;
+    border: none;   
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    color: var(--text-dark);
+    caret-color: var(--text-dark);
+}
+
+#userInput::placeholder {
+    font-size: 15px;
+}
+
+#userInput:focus {
+    outline: none;
+}
+
+#sendButton {
+    background-color: var(--block-blue);
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    height: 100%;
+    cursor: pointer;
+}
+
+#sendButton img {
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+}

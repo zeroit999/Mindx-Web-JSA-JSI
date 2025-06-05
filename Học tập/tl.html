@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Compass</title>
+    <link rel="icon" href="./img/Logo.svg" type="image/png">
+    <link rel="stylesheet" href="tl.css"> <!--Liên kết với file Css-->
+    <link rel="stylesheet" href="../Modals/auth-modal.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Đây là dòng giúp kích thước của các phần tử không bị tràn ra khỏi màn hình của các thiết bị nhỏ-->
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <nav class="nav_pc">
+                <img class="nav-logo" src="../Logo.svg"></img>
+                <ul class="nav_pc-list">
+                    <li class="nav_pc-link"><a href="../index.html">Trang chủ</a></li>
+                    <li class="nav_pc-link"><a href="tl.html">Học tập</a></li>
+                    <li class="nav_pc-link"><a href="../Test/MBTI/index.html">Test</a></li>
+                    <li class="nav_pc-link"><a href="../Thông tin/post.html">Thông tin</a></li>
+                    <li class="nav_pc-link"><a href="#">Tư vấn</a></li>
+                    <li class="nav_pc-link"><a href="../interview-main/pv/interview.html">Phỏng vấn</a></li>
+                    <li class="nav_pc-link"><a href="../Liên hệ/lienhe.html">Liên hệ</a></li>
+                    <li class="nav_pc-link" id="signupLink"><a href="#" id="showSignupModal">Đăng ký</a></li>
+                    <li class="nav_pc-link" id="loginLink"><a href="#" id="showLoginModal">Đăng nhập</a></li>
+                    <li class="nav_pc-link" id="userLogoContainer" style="display: none; position: relative;">
+                        <img id="userLogo" src="" alt="User Logo"
+                            style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer;">
+                        <div id="userMenu">
+                            <a href="../Profile/profile.html">Trang cá nhân</a>
+                            <button id="logoutBtn">Đăng xuất</button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <label class="bar-btn" for="nav_MobileAndTablet-input">
+                <img class="nav_bar-btn" src="../image/bar-button.png">
+            </label>
+            <input type="checkbox" hidden class="nav_input" id="nav_MobileAndTablet-input">
+            <label for="nav_MobileAndTablet-input" class="nav_overlay"></label>
+            <div class="nav_MobileAndTablet">
+                <div class="menu">
+                    <img class="nav-logo" src="../Logo.svg"></img>
+                    <label class="bar-close" for="nav_MobileAndTablet-input">
+                        <img class="nav_bar-close" src="../image/close.png">
+                    </label>
+                </div>
+                <ul class="nav_MobileAndTablet-list">
+                    <li class="nav_MobileAndTablet-link"><a href="../index.html">Trang chủ</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="tl.html">Học tập</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="../Test/MBTI/index.html">Test</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="../Thông tin/post.html">Thông tin</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="#">Tư vấn</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="../interview-main/pv/interview.html">Phỏng vấn</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="../Liên hệ/lienhe.html">Liên hệ</a></li>
+                    <li class="nav_pc-link" id="signupLink"><a href="#" id="showSignupModal">Đăng ký</a></li>
+                    <li class="nav_pc-link" id="loginLink"><a href="#" id="showLoginModal">Đăng nhập</a></li>                </ul>
+            </div>
+        </div>
+    </header>
+        <!-- Login Modal -->
+    <div id="loginModal" class="auth-modal">
+        <div class="auth-modal-content">
+            <span class="close-modal">&times;</span>
+            <h1>Đăng nhập</h1>
+            <div id="login-error-message" class="error-message"></div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" name="email" required placeholder="Nhập địa chỉ email">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Mật khẩu:</label>
+                    <input type="password" id="login-password" name="password" required placeholder="Nhập mật khẩu">
+                </div>
+                <button type="submit" class="btn btn-primary">Đăng nhập</button>
+            </form>
+            <div class="separator">
+                <span>Hoặc</span>
+            </div>
+            <button id="google-login-btn" class="btn btn-google">
+                <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+                    <path fill="currentColor" d="M488 261.8C488 403.3 381.5 512 244 512 110.3 512 0 401.7 0 261.8 0 122.1 105.3 8.4 244 8.4c69.1 0 128.8 27.3 174.2 68.1l-61.9 59.7C333.5 111.1 293.3 91.3 244 91.3c-74.6 0-134.9 60.8-134.9 135.9s60.3 135.9 134.9 135.9c83.2 0 111.1-61.1 114.6-88.9H244v-76.1h239.9c2.3 12.7 3.7 26.1 3.7 40.4z"/>
+                </svg>
+                Đăng nhập với Google
+            </button>
+            <div class="extra-links">
+                <a href="#" id="switchToSignup">Tạo tài khoản mới</a>
+                <span>|</span>
+                <a href="#">Quên mật khẩu?</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="auth-modal">
+        <div class="auth-modal-content">
+            <span class="close-modal">&times;</span>
+            <h1>Đăng ký tài khoản</h1>
+            <div id="signup-error-message" class="error-message"></div>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="signup-email">Email:</label>
+                    <input type="email" id="signup-email" name="email" required placeholder="Nhập địa chỉ email">
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Mật khẩu:</label>
+                    <input type="password" id="signup-password" name="password" required placeholder="Tạo mật khẩu (ít nhất 6 ký tự)">
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Xác nhận mật khẩu:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required placeholder="Nhập lại mật khẩu">
+                </div>
+                <button type="submit" class="btn btn-primary">Đăng ký</button>
+            </form>
+            <div class="separator">
+                <span>Hoặc</span>
+            </div>
+            <button id="google-signup-btn" class="btn btn-google">
+                <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+                    <path fill="currentColor" d="M488 261.8C488 403.3 381.5 512 244 512 110.3 512 0 401.7 0 261.8 0 122.1 105.3 8.4 244 8.4c69.1 0 128.8 27.3 174.2 68.1l-61.9 59.7C333.5 111.1 293.3 91.3 244 91.3c-74.6 0-134.9 60.8-134.9 135.9s60.3 135.9 134.9 135.9c83.2 0 111.1-61.1 114.6-88.9H244v-76.1h239.9c2.3 12.7 3.7 26.1 3.7 40.4z"/>
+                </svg>
+                Tiếp tục với Google
+            </button>
+            <div class="extra-links">
+                <span>Bạn đã có tài khoản?</span>
+                <a href="#" id="switchToLogin">Đăng nhập ngay</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="Elearning">
+        <img class="Elearning-img" src="../image/Elearning-def.jpg">
+    </div>
+    <div class="subjectname">
+        <h1>Khối <span id="k10">10</span></h1>
+    </div>
+    <div class="grid-subject-containner">
+        <div class="row-subject-containner">
+            <a href="#" class="col-subject-containner">
+                <div class="k10-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 1</h2>
+                    <p>Thể hiện phẩm chất tốt đẹp của người học sinh</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k10-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 2</h2>
+                    <p>Xây dựng quan điểm sống</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k10-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 3</h2>
+                    <p>Giữ gìn truyền thống nhà trường</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k10-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 4</h2>
+                    <p>Thực hiện trách nhiệm với gia đình</p>
+                </div>
+            </a>
+            <a href="./TNHN10_Chủ đề 5. Xây dựng kế hoạch tài chính cá nhân (Published)/index.html" class="col-subject-containner">
+                <div class="k10-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 5</h2>
+                    <p>Xây dựng kế hoạch tài chính cá nhân và phát triển kinh tế gia đình</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k10-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 6</h2>
+                    <p>Vận động cộng đồng cùng tham gia các hoạt động xã hội</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k10-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 7</h2>
+                    <p>Tìm hiểu hoạt động sản xuất, kinh doanh, dịch vụ của địa phương</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k10-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 8</h2>
+                    <p>Định hướng học tập và rèn luyện theo nhóm nghề lựa chọn</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k10-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 9</h2>
+                    <p>Bảo vệ cảnh quan thiên nhiên và môi trường tự nhiên</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="subjectname">
+        <h1>Khối <span id="k11">11</span></h1>
+    </div>
+    <div class="grid-subject-containner">
+        <div class="row-subject-containner">
+            <a href="#" class="col-subject-containner">
+                <div class="k11-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 1</h2>
+                    <p>Phấn đầu hoàn thiện bản thân</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k11-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 2</h2>
+                    <p>Tự tin và thích ứng với sự thay đổi</p>
+                </div>
+            </a>
+            <a href="./TNHN11_Chủ đề 3. Góp phần xây dựng và phát triển nhà trường (1) (Published)/index.html" class="col-subject-containner">
+                <div class="k11-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 3</h2>
+                    <p>Góp phần xây dựng và phát triển nhà trường</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k11-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 4</h2>
+                    <p>Tham gia tổ chức cuộc sống gia đình</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k11-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 5</h2>
+                    <p>Xây dựng và thực hiện kế hoạch chi tiêu phù hợp</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k11-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 6</h2>
+                    <p>Thực hiện trách nhiệm với cộng đồng</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k11-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 7</h2>
+                    <p>Thông tin về các nhóm nghề cơ bản</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k11-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 8</h2>
+                    <p>Học tập và rèn luyện theo định hướng nghề nghiệp</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k11-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 9</h2>
+                    <p>Bảo vệ môi trường, cảnh quan thiên nhiên, danh lam thắng cảnh, tài nguyên ở địa phương</p>
+                </div>
+            </a>
+            
+        </div>
+    </div>
+    <div class="subjectname">
+        <h1>Khối <span id="k12">12</span></h1>
+    </div>
+    <div class="grid-subject-containner">
+        <div class="row-subject-containner">
+            <a href="#" class="col-subject-containner">
+                <div class="k12-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 1</h2>
+                    <p>Thể hiện sự trưởng thành của bản thân</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k12-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 2</h2>
+                    <p>Theo đuổi đam mê</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k12-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 3</h2>
+                    <p>Phát triển mối quan hệ với thầy cô và các bạn</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k12-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 4</h2>
+                    <p>Xây dựng giá trị gia đình</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k12-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 5</h2>
+                    <p>Thực hiện kế hoạch tài chính trong cuộc sống</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k12-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 6</h2>
+                    <p>Tham gia xây dựng và phát triển cộng đồng</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k12-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 7</h2>
+                    <p>Xu hướng phát triển nghề nghiệp và thị trường lao động</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k12-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 8</h2>
+                    <p>Sẵn sàng học tập và lao động</p>
+                </div>
+            </a>
+            <a href="#" class="col-subject-containner">
+                <div class="k12-img-col-subject-containner"></div>
+                <div class="description-col-subject-containner">
+                    <h2>Chủ đề 9</h2>
+                    <p>Bảo vệ cảnh quan thiên nhiên, thế giới động vật và thực vật</p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-bottom">
+            <h3>CAREER COMPASS</h3>
+        </div>
+        <div class="footer-container">
+            <div class="footer-column">
+                <img src="./img/Logo.svg" alt="Logo" class="footer-logo">
+            </div>
+            <div class="footer-column">
+                <h3>Thông tin liên hệ</h3>
+                <p>Địa chỉ: 1A Nguyễn Hiến Lê, Phường 13, Tân Bình, Hồ Chí Minh</p>
+                <p>Điện thoại: 090 695 0881</p>
+                <p>Email: tuansu1561@gmail.com</p>
+            </div>
+            <div class="footer-column">
+                <div class="links">
+                    <a href="../index.html">Trang chủ</a> 
+                    <a href="tl.html">Học tập</a> 
+                    <a href="../Test/MBTI/index.html">Test</a> 
+                    <a href="../Thông tin/post.html">Thông tin</a> 
+                    <a href="#">Tư vấn</a> 
+                    <a href="../interview-main/pv/interview.html">Phỏng vấn</a>
+                    <a href="../Liên hệ/lienhe.html">Liên hệ</a>
+                </div>  
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2025 CAREER COMPASS. All rights reserved.</p>
+        </div>
+    </footer>
+    <script type="module" src="../Modals/auth-modal.js"></script>
+        
+</body>
+</html>

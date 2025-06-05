@@ -1,0 +1,144 @@
+body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+#container {
+    width: 100%;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #ff7504;
+    margin-bottom: 20px;
+}
+
+#result-container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    border: #e4e4e4 solid 1px;
+    border-radius: 10px;
+    padding-bottom: 20px;
+}
+
+#resultleft {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+}
+
+#resultleft p {
+    color: rgb(24, 26, 82);
+    font-weight: bold;
+    font-size: 30px;
+    height: 30%;
+}
+
+#resultleft-child {
+    background-color: #f9f9f9;
+    height: 90%;
+    margin: 5% 5%;
+    margin-bottom: 0;
+    padding: 20px 10px;
+    border-radius: 10px;
+}
+
+.highlight {
+    color: #ff7504; /* Màu chủ đạo */
+    font-weight: bold;
+}
+
+.normal {
+    color: rgb(24, 26, 82); /* Màu chữ bình thường */
+    font-weight: bold;
+}
+
+.mbti-desc {
+    text-align: justify; /* Canh chữ đều hai bên */
+    text-justify: inter-word; /* Cải thiện cách phân bố khoảng cách */
+}
+
+#resultright {
+    width: 60%;
+    margin: 0;
+}
+
+.mbti-type {
+    font-size: 4em;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.mbti-desc {
+    font-size: 1.2em;
+    color: #333;
+    padding: 0 10px;
+}
+
+#back {
+    width: 100%;
+    margin-top: 50px;
+}
+
+.back-btn {
+    margin: 0 auto;
+    padding: 15px;
+    border: none;
+    border-radius: 35px;
+    background-color:  #ff7504;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 0 0 5px #ff7504;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.bar-container {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.bar-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: rgb(24, 26, 82);
+}
+
+.progress-bar {
+    height: 24px;
+    background-color: #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.bar-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+}
+
+.bar-e, .bar-i, .bar-s, .bar-n, .bar-t, .bar-f, .bar-j, .bar-p {
+    text-align: center;
+    color: white;
+    line-height: 24px;
+}
+
+.bar-e { background-color: #ffee00; }
+.bar-i { background-color: #b800fa; }
+.bar-s { background-color: #25ed0f; }
+.bar-n { background-color: #6e0096; }
+.bar-t { background-color: #00039a; }
+.bar-f { background-color: #ff00ee; }
+.bar-j { background-color: #00c8ff; }
+.bar-p { background-color: #ff7504; }

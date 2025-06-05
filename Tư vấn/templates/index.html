@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Tư Vấn Hướng Nghiệp</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="app-container">
+            <header>
+                <h1>AI Tư Vấn Hướng Nghiệp</h1>
+                <p>Hỏi đáp thông tin về nghề nghiệp, định hướng tương lai của bạn</p>
+            </header>
+            
+            <div class="upload-section">
+                <h2>Tải lên tài liệu hướng nghiệp</h2>
+                <form id="upload-form" enctype="multipart/form-data">
+                    <label for="file-upload" class="custom-file-upload">
+                        <i class="fas fa-cloud-upload-alt"></i> Chọn tài liệu
+                    </label>
+                    <input id="file-upload" type="file" name="file" accept=".pdf,.doc,.docx">
+                    <button type="submit" id="upload-button">Tải lên</button>
+                </form>
+                <div id="upload-status"></div>
+            </div>
+            
+            <div class="chat-container">
+                <div id="chat-messages">
+                    <div class="message bot">
+                        <div class="message-content">
+                            <p>Xin chào! Tôi là trợ lý AI tư vấn hướng nghiệp. Hãy đặt câu hỏi cho tôi về định hướng nghề nghiệp, ngành học, hoặc kỹ năng bạn cần để thành công trong lĩnh vực mong muốn.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-input">
+                    <textarea id="user-input" placeholder="Nhập câu hỏi của bạn..." rows="1"></textarea>
+                    <button id="send-button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <h3>Hướng dẫn sử dụng</h3>
+                <ol>
+                    <li>Tải lên tài liệu hướng nghiệp (PDF, DOC) để hệ thống học và hiểu thông tin</li>
+                    <li>Đặt câu hỏi về nghề nghiệp, ngành học và kỹ năng cần thiết</li>
+                    <li>Chatbot sẽ trả lời dựa trên thông tin từ các tài liệu đã tải lên</li>
+                </ol>
+                <p class="tip"><i class="fas fa-lightbulb"></i> Mẹo: Đặt câu hỏi cụ thể sẽ nhận được câu trả lời chính xác hơn!</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Chatbot Tư Vấn Hướng Nghiệp AI</p>
+    </footer>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

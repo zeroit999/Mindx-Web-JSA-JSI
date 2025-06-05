@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Counseling</title>
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Đây là dòng giúp kích thước của các phần tử không bị tràn ra khỏi màn hình của các thiết bị nhỏ-->
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="chatContainer">
+            <div id="chatHeader">
+                <div id="chatIcon">
+                    <img src="./img/chatbotIcon.png" alt="chatIcon">
+                </div>
+                <div id="chatTitle">Trợ lí tư vấn Hướng nghiệp</div>
+            </div>
+            <div id="chatWindow">
+                <div id="messageList">
+                    <div class="botMessage" id="welcomeMessage">
+                        Chào bạn! Mình sẽ hỗ trợ tư vấn hướng nghiệp. Bạn hãy nhập câu hỏi nhé.
+                    </div>
+                    <!-- Các tin nhắn sẽ được thêm ở đây -->
+                </div>
+            </div>
+            <div id="inputArea">
+                <input id="userInput" type="text" placeholder="Nhập câu hỏi của bạn..."></input>
+                <button id="sendButton">
+                    <img src="./img/send.png" alt="Send" />
+                </button>
+            </div>
+        </div>
+        <script type="module" src="./script.js"></script>
+</body>
+</html>

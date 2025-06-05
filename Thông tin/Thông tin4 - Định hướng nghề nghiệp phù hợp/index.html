@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Compass</title>
+    <link rel="icon" href="./img/Logo.svg" type="image/png">
+    <link rel="stylesheet" href="style.css"> <!--Liên kết với file Css-->
+    <link rel="stylesheet" href="../../Modals/auth-modal.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--Đây là dòng giúp kích thước của các phần tử không bị tràn ra khỏi màn hình của các thiết bị nhỏ-->
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <nav class="nav_pc">
+                <img class="nav-logo" src="../../Logo.svg"></img>
+                <ul class="nav_pc-list">
+                    <li class="nav_pc-link"><a href="../../index.html">Trang chủ</a></li>
+                    <li class="nav_pc-link"><a href="../../Học tập/tl.html">Học tập</a></li>
+                    <li class="nav_pc-link"><a href="../../Test/MBTI/index.html">Test</a></li>
+                    <li class="nav_pc-link"><a href="../post.html">Thông tin</a></li>
+                    <li class="nav_pc-link"><a href="#">Tư vấn</a></li>
+                    <li class="nav_pc-link"><a href="../../interview-main/pv/interview.html">Phỏng vấn</a></li>
+                    <li class="nav_pc-link"><a href="../../Liên hệ/lienhe.html">Liên hệ</a></li>
+                    <li class="nav_pc-link" id="signupLink"><a href="#" id="showSignupModal">Đăng ký</a></li>
+                    <li class="nav_pc-link" id="loginLink"><a href="#" id="showLoginModal">Đăng nhập</a></li>                    <li class="nav_pc-link" id="userLogoContainer" style="display: none; position: relative;">
+                        <img id="userLogo" src="" alt="User Logo"
+                            style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer;">
+                        <div id="userMenu">
+                            <a href="../../Profile/profile.html">Trang cá nhân</a>
+                            <button id="logoutBtn">Đăng xuất</button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <label class="bar-btn" for="nav_MobileAndTablet-input">
+                <img class="nav_bar-btn" src="../../image/bar-button.png">
+            </label>
+            <input type="checkbox" hidden class="nav_input" id="nav_MobileAndTablet-input">
+            <label for="nav_MobileAndTablet-input" class="nav_overlay"></label>
+            <div class="nav_MobileAndTablet">
+                <div class="menu">
+                    <img class="nav-logo" src="../../Logo.svg"></img>
+                    <label class="bar-close" for="nav_MobileAndTablet-input">
+                        <img class="nav_bar-close" src="../../image/close.png">
+                    </label>
+                </div>
+                <ul class="nav_MobileAndTablet-list">
+                    <li class="nav_MobileAndTablet-link"><a href="../../index.html">Trang chủ</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="../../Học tập/tl.html">Học tập</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="../Test/index.html">Test</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="../post.html">Thông tin</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="#">Tư vấn</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="../../interview-main/pv/interview.html">Phỏng vấn</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="../../Liên hệ/lienhe.html">Liên hệ</a></li>
+                    <li class="nav_pc-link" id="signupLink"><a href="#" id="showSignupModal">Đăng ký</a></li>
+                    <li class="nav_pc-link" id="loginLink"><a href="#" id="showLoginModal">Đăng nhập</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+        <!-- Login Modal -->
+    <div id="loginModal" class="auth-modal">
+        <div class="auth-modal-content">
+            <span class="close-modal">&times;</span>
+            <h1>Đăng nhập</h1>
+            <div id="login-error-message" class="error-message"></div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" name="email" required placeholder="Nhập địa chỉ email">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Mật khẩu:</label>
+                    <input type="password" id="login-password" name="password" required placeholder="Nhập mật khẩu">
+                </div>
+                <button type="submit" class="btn btn-primary">Đăng nhập</button>
+            </form>
+            <div class="separator">
+                <span>Hoặc</span>
+            </div>
+            <button id="google-login-btn" class="btn btn-google">
+                <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+                    <path fill="currentColor" d="M488 261.8C488 403.3 381.5 512 244 512 110.3 512 0 401.7 0 261.8 0 122.1 105.3 8.4 244 8.4c69.1 0 128.8 27.3 174.2 68.1l-61.9 59.7C333.5 111.1 293.3 91.3 244 91.3c-74.6 0-134.9 60.8-134.9 135.9s60.3 135.9 134.9 135.9c83.2 0 111.1-61.1 114.6-88.9H244v-76.1h239.9c2.3 12.7 3.7 26.1 3.7 40.4z"/>
+                </svg>
+                Đăng nhập với Google
+            </button>
+            <div class="extra-links">
+                <a href="#" id="switchToSignup">Tạo tài khoản mới</a>
+                <span>|</span>
+                <a href="#">Quên mật khẩu?</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="auth-modal">
+        <div class="auth-modal-content">
+            <span class="close-modal">&times;</span>
+            <h1>Đăng ký tài khoản</h1>
+            <div id="signup-error-message" class="error-message"></div>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="signup-email">Email:</label>
+                    <input type="email" id="signup-email" name="email" required placeholder="Nhập địa chỉ email">
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Mật khẩu:</label>
+                    <input type="password" id="signup-password" name="password" required placeholder="Tạo mật khẩu (ít nhất 6 ký tự)">
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Xác nhận mật khẩu:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required placeholder="Nhập lại mật khẩu">
+                </div>
+                <button type="submit" class="btn btn-primary">Đăng ký</button>
+            </form>
+            <div class="separator">
+                <span>Hoặc</span>
+            </div>
+            <button id="google-signup-btn" class="btn btn-google">
+                <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+                    <path fill="currentColor" d="M488 261.8C488 403.3 381.5 512 244 512 110.3 512 0 401.7 0 261.8 0 122.1 105.3 8.4 244 8.4c69.1 0 128.8 27.3 174.2 68.1l-61.9 59.7C333.5 111.1 293.3 91.3 244 91.3c-74.6 0-134.9 60.8-134.9 135.9s60.3 135.9 134.9 135.9c83.2 0 111.1-61.1 114.6-88.9H244v-76.1h239.9c2.3 12.7 3.7 26.1 3.7 40.4z"/>
+                </svg>
+                Tiếp tục với Google
+            </button>
+            <div class="extra-links">
+                <span>Bạn đã có tài khoản?</span>
+                <a href="#" id="switchToLogin">Đăng nhập ngay</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <h1 class="title">Định hướng nghề nghiệp phù hợp</h1>
+        <div class="image">
+            <img src="../../image/Định hướng nghề nghiệp phù hợp.jpg"/>
+        </div>
+        <p><i>Nghề nghiệp là khía cạnh quan trọng của cuộc đời nên mỗi người cần định hướng nghề nghiệp phù hợp. Đối tượng cần được hướng nghiệp như học sinh THPT, sinh viên đại học, những người đang tìm kiếm công việc nhưng chưa có kinh nghiệm, cũng như những người đã có kinh nghiệm và đang xem xét sự phát triển trong sự nghiệp của họ.</i></p>
+        <h2>Tại sao cần phải định hướng nghề nghiệp?</h2>
+        <p>Định hướng nghề nghiệp chính là kim chi nam quan trọng để bạn mau chóng đạt được mục tiêu và thành công trong sự nghiệp.</p>
+        <p>Khi được hướng nghiệp chính xác và phù hợp ngay từ ban đầu, bạn sẽ dễ dàng lên kế hoạch đầu tư vào phát triển bản thân, từ đó nhanh chóng chạm đến giấc mơ nghề nghiệp của bản thân hơn.</p>
+        <p>Tưởng tượng mà xem, sẽ thật chán nản biết bao nếu bạn chỉ quanh quẩn mãi ở một chỗ mà không có định hướng rõ ràng nào để tiếp tục tiến về phía trước, phải không?</p>
+        <p>Định hướng nghề nghiệp sẽ không chỉ giúp bạn tìm được công việc thuộc về mình, mà còn tiết kiệm được thời gian và công sức để bạn phát triển sự nghiệp tốt hơn trong tương lai. Và đương nhiên, cải thiện cả chất lượng cuộc sống về cả khía cạnh vật chất và tinh thần cho bạn.</p>
+        <br>
+        <div class="image">
+            <img src="../../image/Tại sao phải định hướng nghề nghiệp.png">
+        </div>
+        <h2>Phương pháp định hướng nghề nghiệp - Thuyết con nhím</h2>
+        <div class="image">
+            <img  src="../../image/Thuyết con nhím.jpg">
+        </div>
+        <br>
+        <p>Chọn được nghề nghiệp phù hợp trong thời đại số không khó khi bạn xác định rõ ràng vùng giao thoa của "thuyết con nhím": đam mê, kỹ năng và nhu cầu xã hội. Dù biết mình là ai, năng lực của mình thế nào để chọn nghề phù hợp nhưng không phải ứng viên nào cũng có thể tìm được một công việc "chuẩn y" các kỹ năng mình đang sở hữu. Một số người từ khi sinh ra đã sẵn có những kỹ năng bẩm sinh đặc biệt trong các lĩnh vực đặc thù như hội họa, âm nhạc, kỹ năng giao tiếp hay thể thao nhưng phần lớn các kỹ năng có thể phục vụ cho nghề nghiệp tương lai thường cần có thời gian lĩnh hội, vun đắp và phát triển.</p>
+    </div>
+    <footer>
+        <div class="footer-bottom">
+            <h3>CAREER COMPASS</h3>
+        </div>
+        <div class="footer-container">
+            <div class="footer-column">
+                <img src="../img/Logo.svg" alt="Logo" class="footer-logo">
+            </div>
+            <div class="footer-column">
+                <h3>Thông tin liên hệ</h3>
+                <p>Địa chỉ: 1A Nguyễn Hiến Lê, Phường 13, Tân Bình, Hồ Chí Minh</p>
+                <p>Điện thoại: 090 695 0881</p>
+                <p>Email: tuansu1561@gmail.com</p>
+            </div>
+            <div class="footer-column">
+                <div class="links">
+                    <a href="../../index.html">Trang chủ</a> 
+                    <a href="../../Học tập/tl.html">Học tập</a> 
+                    <a href="../../Test/MBTI/index.html">Test</a> 
+                    <a href="../post.html">Thông tin</a> 
+                    <a href="#">Tư vấn</a> 
+                    <a href="../../interview-main/pv/interview.html">Phỏng vấn</a>
+                    <a href="../../Liên hệ/lienhe.html">Liên hệ</a>
+                </div>  
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2025 CAREER COMPASS. All rights reserved.</p>
+        </div>
+    </footer>
+    <script type="module" src="../../Modals/auth-modal.js"></script>
+</body>
+</html>

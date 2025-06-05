@@ -1,0 +1,355 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  overflow-x: block;
+}
+
+/* --- Profile Page Specific Styles --- */
+.profile-page-container {
+  padding-top: calc(3.5em + 40px);
+  padding-bottom: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+}
+
+.profile-card {
+  background-color: #ffffff;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 40px 50px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 86, 179, 0.1);
+  border: 1px solid #e0e4e8;
+}
+
+.profile-card h1 {
+  text-align: center;
+  font-family: "Inter", sans-serif; /* Thay bằng font không có chân */
+  font-size: 2.5em;
+  font-weight: 700;
+  color: #0056b3;
+  margin-top: 0;
+  margin-bottom: 45px;
+  letter-spacing: -0.5px;
+}
+
+.profile-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px 60px;
+  align-items: flex-start;
+}
+
+.profile-left {
+  flex: 0 0 220px;
+  text-align: center;
+}
+
+#profile-avatar-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+  background-color: #e0e4e8;
+  display: block;
+  margin: 0 auto 25px auto;
+  object-fit: cover;
+}
+
+.action-links a {
+  display: block;
+  margin-bottom: 12px;
+  color: #007bff;
+  text-decoration: none;
+  font-family: "Inter", sans-serif; /* Thay bằng font không có chân */
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.action-links a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.profile-right {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-details {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  row-gap: 10px;
+  column-gap: 15px;
+  align-items: center;
+  font-size: 16px;
+}
+
+.profile-details p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-size: 1.05em;
+  font-family: "Inter", sans-serif; /* Thay bằng font không có chân */
+  display: contents;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.profile-details strong {
+  text-align: left;
+  white-space: nowrap;
+}
+
+.profile-details p strong {
+  font-weight: 700;
+  color: #ff7504;
+  min-width: 180px;
+  display: inline-block;
+  margin-right: 15px;
+  font-family: "Inter", sans-serif; /* Thay bằng font không có chân */
+  flex-shrink: 0;
+}
+
+.profile-details span {
+  text-align: left;
+}
+
+.detail-block {
+  white-space: pre-wrap;
+}
+
+.profile-details p span {
+  color: #34495e;
+  flex-grow: 1;
+}
+
+/* --- Modal Styles --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px 30px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #000;
+  text-decoration: none;
+}
+
+.modal-content h2 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: #007bff;
+  font-family: "Inter", sans-serif; /* Thay bằng font không có chân */
+  font-size: 1.8em;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.modal-content label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #ff7504;
+  font-size: 0.95em;
+  font-family: "Inter", sans-serif; /* Thay bằng font không có chân */
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="date"],
+.modal-content select,
+.modal-content textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #b8cde0;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-size: 1em;
+  font-family: "Inter", sans-serif; /* Thay bằng font không có chân */
+  color: #34495e;
+  background-color: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modal-content input[type="text"]:focus,
+.modal-content input[type="date"]:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+  border-color: #007bff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.modal-content textarea {
+  resize: vertical;
+  min-height: 100px;
+  display: block;
+}
+
+.modal-content ::placeholder {
+  color: #95a5a6;
+  opacity: 1;
+}
+
+.modal-content button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 600;
+  display: block;
+  width: 100%;
+  margin-top: 25px;
+  font-family: "Inter", sans-serif; /* Thay bằng font không có chân */
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content button[type="submit"]:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 10px rgba(0, 86, 179, 0.2);
+}
+
+/* --- Test History Modal Styles --- */
+#test-history-modal .modal-content {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+#test-history-content {
+  font-family: "Inter", sans-serif; /* Thay bằng font không có chân */
+  font-size: 1em;
+  color: #34495e;
+  line-height: 1.6;
+}
+
+#test-history-content ul li {
+  padding: 10px;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+#test-history-content ul li:last-child {
+  border-bottom: none;
+}
+
+#test-history-content strong {
+  color: #ff7504;
+  font-weight: 700;
+}
+
+#test-history-content span {
+  color: #34495e;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+  .profile-card {
+    padding: 30px 35px;
+  }
+  .profile-content {
+    gap: 30px 40px;
+  }
+  .profile-left {
+    flex: 0 0 180px;
+  }
+  #profile-avatar-img {
+    width: 140px;
+    height: 140px;
+  }
+  .profile-details p strong {
+    min-width: 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-page-container {
+    padding-top: calc(3.5em + 20px);
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .profile-card {
+    padding: 25px 20px;
+  }
+  .profile-card h1 {
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+  .profile-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+  }
+  .profile-left {
+    flex-basis: auto;
+    width: 100%;
+    max-width: 200px;
+  }
+  .profile-right {
+    width: 100%;
+    text-align: center;
+  }
+  .profile-details p {
+    font-size: 1em;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .profile-details p strong {
+    display: block;
+    margin-bottom: 5px;
+    min-width: unset;
+    margin-right: 0;
+    text-align: center;
+  }
+  .profile-details p span {
+    display: block;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .profile-card {
+    padding: 50px 60px;
+  }
+}

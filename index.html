@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Career Compass</title>
+    <link rel="icon" href="./Logo.svg" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./Modals/auth-modal.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <nav class="nav_pc">
+                <img class="nav-logo" src="Logo.svg"></img>
+                <ul class="nav_pc-list">
+                    <li class="nav_pc-link"><a href="index.html">Trang chủ</a></li>
+                    <li class="nav_pc-link"><a href="./Học tập/tl.html">Học tập</a></li>
+                    <li class="nav_pc-link"><a href="./Test/MBTI/index.html">Test</a></li>
+                    <li class="nav_pc-link"><a href="./Thông tin/post.html">Thông tin</a></li>
+                    <li class="nav_pc-link"><a href="./counseling/index.html">Tư vấn</a></li>
+                    <li class="nav_pc-link"><a href="./interview-main/pv/interview.html">Phỏng vấn</a></li>
+                    <li class="nav_pc-link"><a href="./Liên hệ/lienhe.html">Liên hệ</a></li>
+                    <li class="nav_pc-link" id="signupLink"><a href="#" id="showSignupModal">Đăng ký</a></li>
+                    <li class="nav_pc-link" id="loginLink"><a href="#" id="showLoginModal">Đăng nhập</a></li>
+                    <li class="nav_pc-link" id="userLogoContainer" style="display: none; position: relative;">
+                        <img id="userLogo" src="" alt="User Logo" style="width: 30px; height: 30px; border-radius: 50%; cursor: pointer;">
+                        <div id="userMenu">
+                            <a href="./Profile/profile.html">Trang cá nhân</a>
+                            <button id="logoutBtn">Đăng xuất</button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <label class="bar-btn" for="nav_MobileAndTablet-input">
+                <img class="nav_bar-btn" src="./image/bar-button.png">
+            </label>
+            <input type="checkbox" hidden class="nav_input" id="nav_MobileAndTablet-input">
+            <label for="nav_MobileAndTablet-input" class="nav_overlay"></label>
+            <div class="nav_MobileAndTablet">
+                <div class="menu">
+                    <img class="nav-logo" src="Logo.svg"></img>
+                    <label class="bar-close" for="nav_MobileAndTablet-input">
+                        <img class="nav_bar-close" src="./image/close.png">
+                    </label>
+                </div>
+                <ul class="nav_MobileAndTablet-list">
+                    <li class="nav_MobileAndTablet-link"><a href="./index.html">Trang chủ</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="./Học tập/tl.html">Học tập</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="./Test/MBTI/index.html">Test</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="./Thông tin/post.html">Thông tin</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="#">Tư vấn</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="./interview-main/pv/interview.html">Phỏng vấn</a></li>
+                    <li class="nav_MobileAndTablet-link"><a href="./Liên hệ/lienhe.html">Liên hệ</a></li>
+                    <li class="nav_pc-link" id="signupLink"><a href="#" id="showSignupModal">Đăng ký</a></li>
+                    <li class="nav_pc-link" id="loginLink"><a href="#" id="showLoginModal">Đăng nhập</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+        <!-- Login Modal -->
+    <div id="loginModal" class="auth-modal">
+        <div class="auth-modal-content">
+            <span class="close-modal">&times;</span>
+            <h1>Đăng nhập</h1>
+            <div id="login-error-message" class="error-message"></div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email:</label>
+                    <input type="email" id="login-email" name="email" required placeholder="Nhập địa chỉ email">
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Mật khẩu:</label>
+                    <input type="password" id="login-password" name="password" required placeholder="Nhập mật khẩu">
+                </div>
+                <button type="submit" class="btn btn-primary">Đăng nhập</button>
+            </form>
+            <div class="separator">
+                <span>Hoặc</span>
+            </div>
+            <button id="google-login-btn" class="btn btn-google">
+                <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+                    <path fill="currentColor" d="M488 261.8C488 403.3 381.5 512 244 512 110.3 512 0 401.7 0 261.8 0 122.1 105.3 8.4 244 8.4c69.1 0 128.8 27.3 174.2 68.1l-61.9 59.7C333.5 111.1 293.3 91.3 244 91.3c-74.6 0-134.9 60.8-134.9 135.9s60.3 135.9 134.9 135.9c83.2 0 111.1-61.1 114.6-88.9H244v-76.1h239.9c2.3 12.7 3.7 26.1 3.7 40.4z"/>
+                </svg>
+                Đăng nhập với Google
+            </button>
+            <div class="extra-links">
+                <a href="#" id="switchToSignup">Tạo tài khoản mới</a>
+                <span>|</span>
+                <a href="#">Quên mật khẩu?</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="auth-modal">
+        <div class="auth-modal-content">
+            <span class="close-modal">&times;</span>
+            <h1>Đăng ký tài khoản</h1>
+            <div id="signup-error-message" class="error-message"></div>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="signup-email">Email:</label>
+                    <input type="email" id="signup-email" name="email" required placeholder="Nhập địa chỉ email">
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Mật khẩu:</label>
+                    <input type="password" id="signup-password" name="password" required placeholder="Tạo mật khẩu (ít nhất 6 ký tự)">
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Xác nhận mật khẩu:</label>
+                    <input type="password" id="confirm-password" name="confirm-password" required placeholder="Nhập lại mật khẩu">
+                </div>
+                <button type="submit" class="btn btn-primary">Đăng ký</button>
+            </form>
+            <div class="separator">
+                <span>Hoặc</span>
+            </div>
+            <button id="google-signup-btn" class="btn btn-google">
+                <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+                    <path fill="currentColor" d="M488 261.8C488 403.3 381.5 512 244 512 110.3 512 0 401.7 0 261.8 0 122.1 105.3 8.4 244 8.4c69.1 0 128.8 27.3 174.2 68.1l-61.9 59.7C333.5 111.1 293.3 91.3 244 91.3c-74.6 0-134.9 60.8-134.9 135.9s60.3 135.9 134.9 135.9c83.2 0 111.1-61.1 114.6-88.9H244v-76.1h239.9c2.3 12.7 3.7 26.1 3.7 40.4z"/>
+                </svg>
+                Tiếp tục với Google
+            </button>
+            <div class="extra-links">
+                <span>Bạn đã có tài khoản?</span>
+                <a href="#" id="switchToLogin">Đăng nhập ngay</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-introduction">
+        <div class="row-introduction">
+            <div class="col-1-introduction">
+                <div class="containner-col-introduction">
+                    <div class="title-col-introduction">
+                        <h1 class="text-gradient"><span class="fontcolor-organe" id="firstcolor">Định hướng</span>nghề nghiệp phù hợp cho bạn</h1>
+                    </div>
+                    <p><span class="fontcolor-organe" id="firstcolor">Thông qua</span>các<span class="fontcolor-organe">bài giảng E-learning</span>môn hướng nghiệp THPT,<span class="fontcolor-organe">bài test</span>tính cách năng lực học sinh,<span class="fontcolor-organe">trò chơi</span>mô phỏng nghề nghiệp và<span class="fontcolor-organe">phỏng vấn</span>giả lập.</p>
+                </div>
+            </div>
+            <div class="col-2-introduction">
+                <div class="img-col-introduction">
+                    <img id="img1" onclick="changeImage()" src="./image/nganhcongnghethongtin.jpg">
+                </div> 
+            </div>
+        </div>
+    </div>
+    <div class="separation">
+        <div class="Elearning-title">
+            <h1>E - LEARNING</h1>
+        </div>
+        <div class="Elearning-content">
+            <div class="row-Elearning-content">
+                <div class="col-Elearning-content">
+                    <div class="col10-Elearning-content"></div>
+                    <h2 class="title-elearning">Hoạt động trải nghiệm hướng nghiệp <span id="t10">10</span></h2>
+                    <a href="../Học tập/tl.html" class="col-button">Học ngay</a>
+                </div>
+                <div class="col-Elearning-content">
+                    <div class="col11-Elearning-content"></div>
+                    <h2 class="title-elearning">Hoạt động trải nghiệm hướng nghiệp <span id="t11">11</span></h2>
+                    <a href="../Học tập/tl.html" class="col-button">Học ngay</a>
+                </div>
+                <div class="col-Elearning-content"> 
+                    <div class="col12-Elearning-content"></div>
+                    <h2 class="title-elearning">Hoạt động trải nghiệm hướng nghiệp <span id="t12">12</span></h2>
+                    <a href="../Học tập/tl.html" class="col-button">Học ngay</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-bottom">
+            <h3>CAREER COMPASS</h3>
+        </div>
+        <div class="footer-container">
+            <div class="footer-column">
+                <img src="./Logo.svg" alt="Logo" class="footer-logo">
+            </div>
+            <div class="footer-column">
+                <h3>Thông tin liên hệ</h3>
+                <p>Địa chỉ: 1A Nguyễn Hiến Lê, Phường 13, Tân Bình, Hồ Chí Minh</p>
+                <p>Điện thoại: 090 695 0881</p>
+                <p>Email: tuansu1561@gmail.com</p>
+            </div>
+            <div class="footer-column">
+                <div class="links">
+                    <a href="./index.html">Trang chủ</a> 
+                    <a href="./Học tập/tl.html">Học tập</a> 
+                    <a href="./Test/MBTI/index.html">Test</a> 
+                    <a href="./Thông tin/post.html">Thông tin</a> 
+                    <a href="#">Tư vấn</a> 
+                    <a href="./interview-main/pv/interview.html">Phỏng vấn</a>
+                    <a href="./Liên hệ/lienhe.html">Liên hệ</a>
+                </div>  
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright © 2025 CAREER COMPASS. All rights reserved.</p>
+        </div>
+    </footer>  
+    <script type="module" src="./Modals/auth-modal.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
